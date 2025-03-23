@@ -1,6 +1,7 @@
 package com.app.adapter.input.dto;
 
 import com.app.domain.model.Item;
+import com.app.domain.model.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,14 +15,16 @@ public class OrderDTO {
     private String orderExternalId;
     private List<Item> Items;
     private float totalPrice;
+    private OrderStatus status;
     private LocalDateTime createdAt;
 
     public OrderDTO(String orderId, String orderExternalId, List<Item> items, float totalPrice,
-                    LocalDateTime createdAt) {
+                    OrderStatus status, LocalDateTime createdAt) {
         this.orderId = orderId;
         this.orderExternalId = orderExternalId;
         Items = items;
         this.totalPrice = totalPrice;
+        this.status = status;
         this.createdAt = createdAt;
     }
 
@@ -58,6 +61,14 @@ public class OrderDTO {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     public LocalDateTime getCreatedAt() {
