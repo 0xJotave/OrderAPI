@@ -1,17 +1,15 @@
 package com.app.adapter.input.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class ItemDTO {
+public class ItemDTO implements Serializable {
     private String productId;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private BigDecimal price;
 
-    public ItemDTO(String productId, String productName, Integer quantity, Float price) {
+    public ItemDTO(String productId, String productName, Integer quantity, BigDecimal price) {
         this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
@@ -45,11 +43,11 @@ public class ItemDTO {
         this.quantity = quantity;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
