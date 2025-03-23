@@ -1,6 +1,7 @@
 package com.app.domain.service;
 
 import com.app.adapter.output.mongo.repository.OrderRepositoryPort;
+import com.app.domain.exception.OrderNotFound;
 import com.app.domain.model.Order;
 import org.springframework.stereotype.Service;
 
@@ -22,18 +23,26 @@ public class OrderService {
     }
 
     public List<Order> getAllOrders() {
-        return orderRepositoryPort.findAll();
+        List<Order> orders = orderRepositoryPort.findAll();
+        if (orders.isEmpty()) throw new OrderNotFound("[ERROR] Orders Not Found");
+        return orders;
     }
 
     public Optional<Order> getSingleOrder(String id) {
-        return orderRepositoryPort.findById(id);
+        Optional<Order> order = orderRepositoryPort.findById(id);
+        if (order.isEmpty()) throw new OrderNotFound("[ERROR] Order " + id + " Not Found");
+        return order;
     }
 
     public void deleteOrder(String id) {
+        Optional<Order> order = orderRepositoryPort.findById(id);
+        if (order.isEmpty()) throw new OrderNotFound("[ERROR] Order " + id + " Not Found");
         orderRepositoryPort.deleteById(id);
     }
 
     public void deleteAllOrders() {
+        List<Order> orders = orderRepositoryPort.findAll();
+        if (orders.isEmpty()) throw new OrderNotFound("[ERROR] No Orders to Delete");
         orderRepositoryPort.deleteAll();
     }
 
