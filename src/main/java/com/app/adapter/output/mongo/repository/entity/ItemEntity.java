@@ -1,22 +1,20 @@
 package com.app.adapter.output.mongo.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Document(collection = "items")
-public class ItemEntity {
+public class ItemEntity implements Serializable {
     @Id
     private String productId;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private BigDecimal price;
 
-    public ItemEntity(String productId, String productName, Integer quantity, Float price) {
+    public ItemEntity(String productId, String productName, Integer quantity, BigDecimal price) {
         this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
@@ -50,11 +48,11 @@ public class ItemEntity {
         this.quantity = quantity;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
