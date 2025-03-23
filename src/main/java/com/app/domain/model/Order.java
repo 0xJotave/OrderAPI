@@ -1,18 +1,20 @@
 package com.app.domain.model;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
-public class Order {
+public class Order implements Serializable {
     private String orderId;
     private String orderExternalId;
     private List<Item> Items;
-    private float totalPrice;
+    private BigDecimal totalPrice;
     private OrderStatus status;
     private LocalDateTime createdAt;
 
-    public Order(String orderId, String orderExternalId, List<Item> items, float totalPrice,
+    public Order(String orderId, String orderExternalId, List<Item> items, BigDecimal totalPrice,
                  OrderStatus status, LocalDateTime createdAt) {
         this.orderId = orderId;
         this.orderExternalId = orderExternalId;
@@ -46,11 +48,11 @@ public class Order {
         Items = items;
     }
 
-    public float getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -87,10 +89,7 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Float.compare(totalPrice, order.totalPrice) == 0 && Objects.equals(orderId, order.orderId) &&
-                Objects.equals(orderExternalId, order.orderExternalId) &&
-                Objects.equals(Items, order.Items) && status == order.status &&
-                Objects.equals(createdAt, order.createdAt);
+        return Objects.equals(orderId, order.orderId) && Objects.equals(orderExternalId, order.orderExternalId) && Objects.equals(Items, order.Items) && Objects.equals(totalPrice, order.totalPrice) && status == order.status && Objects.equals(createdAt, order.createdAt);
     }
 
     @Override

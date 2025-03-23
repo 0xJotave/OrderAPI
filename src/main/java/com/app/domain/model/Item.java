@@ -1,12 +1,17 @@
 package com.app.domain.model;
 
-public class Item {
+import lombok.NonNull;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+public class Item implements Serializable {
     private String productId;
     private String productName;
     private Integer quantity;
-    private Float price;
+    private BigDecimal price;
 
-    public Item(String productId, String productName, Integer quantity, Float price) {
+    public Item(String productId, String productName, Integer quantity, BigDecimal price) {
         this.productId = productId;
         this.productName = productName;
         this.quantity = quantity;
@@ -37,11 +42,11 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
