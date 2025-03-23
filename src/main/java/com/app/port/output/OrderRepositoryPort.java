@@ -1,9 +1,6 @@
-package com.app.adapter.output.mongo.repository;
+package com.app.port.output;
 
-import com.app.adapter.output.mongo.repository.entity.OrderEntity;
 import com.app.domain.model.Order;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;

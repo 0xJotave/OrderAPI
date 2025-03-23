@@ -1,27 +1,28 @@
 package com.app.adapter.input.dto;
 
 import com.app.domain.model.Item;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.app.domain.model.OrderStatus;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class OrderDTO {
+public class OrderDTO implements Serializable {
     private String orderId;
     private String orderExternalId;
     private List<Item> Items;
-    private float totalPrice;
+    private BigDecimal totalPrice;
+    private OrderStatus status;
     private LocalDateTime createdAt;
 
-    public OrderDTO(String orderId, String orderExternalId, List<Item> items, float totalPrice,
-                    LocalDateTime createdAt) {
+    public OrderDTO(String orderId, String orderExternalId, List<Item> items, BigDecimal totalPrice,
+                    OrderStatus status, LocalDateTime createdAt) {
         this.orderId = orderId;
         this.orderExternalId = orderExternalId;
         Items = items;
         this.totalPrice = totalPrice;
+        this.status = status;
         this.createdAt = createdAt;
     }
 
@@ -52,12 +53,20 @@ public class OrderDTO {
         Items = items;
     }
 
-    public float getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     public LocalDateTime getCreatedAt() {

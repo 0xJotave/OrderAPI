@@ -1,10 +1,16 @@
-HELP.md
+# Ignore the target directory where compiled classes and artifacts are stored
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### STS ###
+# Ignore build output in specific directories but allow src/main/build and src/test/build
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Ignore the .mvn directory and the maven wrapper jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignore IDE-specific files and configuration files
+
+### STS (Spring Tool Suite) ###
 .apt_generated
 .classpath
 .factorypath
@@ -31,3 +37,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ignore application.properties and other sensitive configuration files
+/src/main/resources/application.properties
+/src/main/resources/application.yml
+
