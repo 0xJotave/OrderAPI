@@ -9,14 +9,16 @@ public class Order {
     private String orderExternalId;
     private List<Item> Items;
     private float totalPrice;
+    private OrderStatus status;
     private LocalDateTime createdAt;
 
     public Order(String orderId, String orderExternalId, List<Item> items, float totalPrice,
-                 LocalDateTime createdAt) {
+                 OrderStatus status, LocalDateTime createdAt) {
         this.orderId = orderId;
         this.orderExternalId = orderExternalId;
         Items = items;
         this.totalPrice = totalPrice;
+        this.status = status;
         this.createdAt = createdAt;
     }
 
@@ -52,6 +54,14 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -67,6 +77,7 @@ public class Order {
                 ", orderExternalId='" + orderExternalId + '\'' +
                 ", Items=" + Items +
                 ", totalPrice=" + totalPrice +
+                ", status=" + status +
                 ", createdAt=" + createdAt +
                 '}';
     }
@@ -76,11 +87,14 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return Float.compare(totalPrice, order.totalPrice) == 0 && Objects.equals(orderId, order.orderId) && Objects.equals(orderExternalId, order.orderExternalId) && Objects.equals(Items, order.Items) && Objects.equals(createdAt, order.createdAt);
+        return Float.compare(totalPrice, order.totalPrice) == 0 && Objects.equals(orderId, order.orderId) &&
+                Objects.equals(orderExternalId, order.orderExternalId) &&
+                Objects.equals(Items, order.Items) && status == order.status &&
+                Objects.equals(createdAt, order.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderId, orderExternalId, Items, totalPrice, createdAt);
+        return Objects.hash(orderId, orderExternalId, Items, totalPrice, status, createdAt);
     }
 }
