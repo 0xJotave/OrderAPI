@@ -2,12 +2,10 @@ package com.app.adapter.output.mongo;
 
 import com.app.adapter.input.mapper.OrderMapper;
 import com.app.adapter.output.mongo.repository.OrderRepository;
-import com.app.adapter.output.mongo.repository.OrderRepositoryPort;
+import com.app.port.output.OrderRepositoryPort;
 import com.app.adapter.output.mongo.repository.entity.OrderEntity;
 import com.app.domain.model.Order;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
