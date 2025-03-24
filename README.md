@@ -18,13 +18,13 @@ com o intuito de evitar o envio de múltiplas requisições desnecessárias ao b
 ## Como Rodar o Projeto Localmente 🚀
 - Clone este repositório:
    ```bash
-   git clone ...
+   git clone https://github.com/0xJotave/OrderAPI
   ```
 - Inicie o MongoDB
 - Inicie o Redis-Server
 - Inicie a Aplicação
 
-## Endpoints para Testar
+## Endpoints para Testar 🧩
 - **GET All**: localhost:8080/orders
 - **POST**: localhost:8080/orders
 - **DELETE All** localhost:8080/orders
