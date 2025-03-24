@@ -22,11 +22,11 @@ public class WebClientAdapter implements WebClientPort {
     public void sendOrder(Order order) {
         if (sentOrderIds.contains(order.getOrderId())) {
             System.out.printf("Order %s has already been sent. Ignoring... %n", order.getOrderId());
-            return;  // Impede o envio
+            return;
         }
 
         System.out.printf("Sending Order %s to External Service... %n", order.getOrderId());
-        sentOrderIds.add(order.getOrderId());  // Marca o pedido como enviado
+        sentOrderIds.add(order.getOrderId());
 
         webClient.method(HttpMethod.POST)
                 .uri("/orders")
