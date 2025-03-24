@@ -1,7 +1,6 @@
-package com.app.adapter.output.mongo;
+package com.app.adapter.output.mongo.repository;
 
 import com.app.adapter.input.mapper.OrderMapper;
-import com.app.adapter.output.mongo.repository.OrderRepository;
 import com.app.port.output.OrderRepositoryPort;
 import com.app.adapter.output.mongo.repository.entity.OrderEntity;
 import com.app.domain.model.Order;
