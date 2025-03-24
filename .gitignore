@@ -38,7 +38,4 @@ build/
 ### VS Code ###
 .vscode/
 
-# Ignore application.properties and other sensitive configuration files
-/src/main/resources/application.properties
-/src/main/resources/application.yml
 
